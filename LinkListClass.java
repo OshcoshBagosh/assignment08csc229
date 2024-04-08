@@ -41,11 +41,9 @@ public class LinkListClass {
         int num;
         int size = list1.size();
         for (int i = 0; i < size; i++){
-            num = list1.peek();
-            if (digit3(num) == true)
-                list2.add(list1.remove());
-            else
-                list1.remove();
+            num = list1.remove();
+            if (digit3(num))
+                list2.add(num);
         }
     }
 
