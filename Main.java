@@ -1,17 +1,23 @@
-import java.util.LinkedList;
 public class Main {
     public static void main(String[] args) {
-        LinkedList<Integer> list1 = new LinkedList<>();
-        LinkedList<Integer> list2 = new LinkedList<>();
+        SinglyLinkedList list1 = new SinglyLinkedList();
+        SinglyLinkedList list2 = new SinglyLinkedList();
 
-        LinkListClass.fillList(list1, 100);
-        System.out.println(list1);
+        PrimeNum.fillList(list1, 100);
+        list1.print();
 
-        LinkListClass.move3(list1, list2);
+        Node temp = list1.getHead();
+        int sum = 0;
+        while (temp != null){
+            if (PrimeNum.digit3(temp.data)){
+                list2.append(new Node(temp.data));
+                sum += temp.data;
+            }
+            temp = temp.next;
+        }
 
-        System.out.println(list2);
-
-        System.out.println(LinkListClass.addPrime(list2));
+        list2.print();
+        System.out.println("The sum of List2 is: " + sum);
 
     }
 }
